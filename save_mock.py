@@ -1,6 +1,6 @@
 """
 This script generates mock wealthy profile embeddings and metadata
-for testing the Selfie Net Worth Estimator API. 
+for testing the Selfie Net Worth Estimator API.
 
 Run once before starting the API.
 """
@@ -21,11 +21,11 @@ np.save("mock_profiles/wealthy_embeddings.npy", embeddings)
 
 # Corresponding fake metadata
 metadata = [
-    {"name": "Mark Zuckerberg", "net_worth": "100B"},
+    {"name": "Elon Musk", "net_worth": "300B"},
+    {"name": "Oprah Winfrey", "net_worth": "2.5B"},
     {"name": "Jeff Bezos", "net_worth": "200B"},
     {"name": "Rihanna", "net_worth": "1.4B"},
-    {"name": "Oprah Winfrey", "net_worth": "2.5B"},
-    {"name": "Jay-Z", "net_worth": "2B"},
+    {"name": "Mark Zuckerberg", "net_worth": "100B"},
 ]
 
 with open("mock_profiles/wealthy_metadata.json", "w") as f:
