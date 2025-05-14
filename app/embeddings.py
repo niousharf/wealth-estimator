@@ -3,6 +3,7 @@ from PIL import Image
 import torch
 import io
 from functools import lru_cache
+from torchvision.models import ResNet18_Weights
 
 
 @lru_cache()
@@ -13,7 +14,7 @@ def get_model():
     Returns:
         torch.nn.Module: A pretrained ResNet-18 model with final FC layer replaced by Identity.
     """
-    model = models.resnet18(pretrained=True)
+    model = models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
     model.fc = torch.nn.Identity()
     model.eval()
     return model
