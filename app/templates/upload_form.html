@@ -1,0 +1,27 @@
+<!-- app/templates/upload_form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selfie Net Worth Estimator</title>
+</head>
+<body>
+    <h2>Upload your selfie</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form action="/predict-form" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if net_worth %}
+        <h3>Estimated Net Worth: {{ net_worth }} CAD</h3>
+        <h4>Top Similar Profiles:</h4>
+        <ul>
+        {% for match in matches %}
+            <li>{{ match.name }} – Net Worth: {{ match.net_worth }} – Similarity: {{ match.similarity_score }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
